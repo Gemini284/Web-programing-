@@ -1,0 +1,243 @@
+:root{
+    --blanco: #ffffff;
+    --oscuro: #212121;
+    --primario: #ffC107;   
+    --secundario: #0097A7;
+    --gris: #757575;
+}
+/*Esto es un comentario en Css*/
+ 
+html{
+    font-size: 62.5%;
+    box-sizing: border-box;
+    scroll-snap-type: y mandatory;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+  }
+body{ 
+    font-size: 16px;/*1rem= 10 px*/
+    font-family : 'Krub', sans-serif;
+    background-image: linear-gradient(to top, #dfe9f3 8%, var(--blanco) 100%);/*primero hacia arriba*/   
+}
+h1,h2,h3{
+    text-align: center;
+}
+.titulo{
+    text-align: center;
+    /*1 rem=10px, los rem se adaptan mejor*/
+}   
+/*tipografia*/
+h1{
+    font-size: 3.8rem;
+}
+h2{
+    font-size: 2.8rem;
+}
+h3{
+    font-size: 1.8rem;
+}
+.titulo span {
+    font-size: 2rem;
+}
+
+.contenedor{
+    max-width: 80rem;
+    margin: 0 auto;
+    width: 50%;
+}
+.boton{
+    background-color: var(--secundario);
+    color:var(--blanco);
+    padding: 1.5rem 1.5rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: .5rem;
+    width: 90%;
+    text-align: center;
+    border: none;
+}
+@media (min-width:760px){
+    .boton{
+        width: auto;
+    }
+}
+.boton::hover{
+    cursor: pointer;
+
+}
+/*obtenido de cssmatic.com*/
+.sombra{
+    /*-webkit-box-shadow: 0px 5px 15px 0px rgba(112, 112, 112, 0.54); si quieres saber si algo es soportado por cierto sitio usa:https://caniuse.com/
+    -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.54); no son necesarios pero sirven para hacer sombra*/
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 3rem;
+    border-radius: 1rem; /*Ayuda a redondear el marco*/
+}
+/*utilidades*/  
+    .w-100{
+    width: 100%;
+}
+@media (min-width: 780px){
+    .w-100{
+        width: auto;
+    }
+}
+.flex{
+    display: flex;
+}
+.alinear-derecha{
+    justify-content: flex-end;
+}
+.nav-bg{
+    background-color: var(--secundario);
+}
+.navegacion-principal {
+    display: flex;
+    flex-direction: column;
+}
+.navegacion-principal {
+    padding: 1rem;
+    color: var(--blanco);
+    text-decoration: none;
+    font-size:2rem;
+    font-weight: bold;
+    text-align: center; 
+    display: block;
+}
+.navegacion-principal a:hover{
+    background-color: var(--primario);
+    color: var(--oscuro);
+}
+@media (min-width: 768px){
+    .navegacion-principal{
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-between;
+    }
+}
+.hero{
+    background-image: url(../img/hero.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 450px;
+    position: relative;
+    margin-bottom: 2rem;
+}
+.contenido-hero{
+    position: absolute;
+    background-color: rgba(0,0,0, .7);
+    background-color: rgb(0 0 0 /70%) ;
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;/*Este código alinea verticalmente*/
+}
+.contenido-hero h2,/*misma regla se usa coma*/
+.contenido-hero p{
+    color:var(--blanco);
+}
+.ubicacion{
+    display: flex;
+   align-items:flex-end;
+}
+.navegacion-principal,
+.formulario,
+.servicios{
+    scroll-snap-stop: always;/*no funciona en todos los servicios. Detiene esto ahí*/
+    scroll-snap-align: center;
+}
+@media (min-width: 768px){
+    .servicios{
+        display: grid; /*despleja propiedades que permiten definir tamaño y ubicacion del documento(Se agrupa dentro de un area definida y más flexible)*/
+        /*define area y el contenido se va agrupando ahí (modificable)*/
+        grid-template-columns: repeat(3,1fr); /*divide el espacio en fracciones*/
+        column-gap: 1rem;
+        /*grid: 200px 800px/300px 300px Lo mismo que arriba*/
+    }
+}
+
+.servicio{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.servicio h3{
+  color: var(--secundario);
+  font-weight: normal;
+}
+.servicio p{
+    line-height: 2;
+    text-align: center;
+}
+.servicio .iconos{
+    height: 15rem;
+    width: 15rem;
+    background-color: var(--primario);
+    border-radius: 50%; /*hace un circulo*/
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center; /*centra vertical como horizontal :0*/
+}
+/*contacto*/
+.formulario{
+    background-color: var(--gris);
+    width: (40rem,100% );/*utiliza el valor mas pequeño*/
+    margin: 0 auto;/*usar esto cuando tenga un formulario cuyo padre no es un display flex*/
+    padding: 2rem;
+    border-radius: 1rem;
+}
+.formulario fieldset{
+    border: none;
+}
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: var(--primario);
+}
+@media (min-width:768px){
+.contenedor-campos{
+    display: grid;
+    grid-template-columns:50% 50%;
+    column-gap: 1rem;
+    grid-template-rows: auto auto 20rem;
+    }
+    .campo:nth-child(3),
+    .campo:nth-child(4){ /*selecciona el numero que este en parentesis si tienen las mismas clases (empieza en 1)*/
+        grid-column: 1 / 3;
+    }
+}
+.campo{
+    margin-bottom: 1rem;
+}
+.campo label{
+    color: var(--blanco);
+    font-weight: bold;
+    margin-bottom: .5rem;
+    display: block;
+}
+.campo textarea{
+    height: 10rem;
+}
+.input-text{
+    width: 100%;
+    border-radius: .5rem;
+    padding: 1.5rem;
+    border: none;
+}
+.enviar.boton{
+    width: 50%;
+}
+.foater{
+    text-align:center;
+}
